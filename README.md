@@ -30,7 +30,6 @@ db.orders.insertMany([
 { orderId: 6, productId: "P003", qty: 20, price: 200, status: "completed" }
 ]);
 
-text
 
 ---
 
@@ -66,7 +65,6 @@ totalSales: -1
 }
 ]);
 
-text
 
 ---
 
@@ -81,7 +79,6 @@ $and: [
 ]
 });
 
-text
 
 - Find orders where status is **not** `"completed"`:
 
@@ -89,7 +86,6 @@ db.orders.find({
 status: { $ne: "completed" }
 });
 
-text
 
 - Find orders where quantity is **not** greater than 10:
 
@@ -97,7 +93,6 @@ db.orders.find({
 qty: { $not: { $gt: 10 } }
 });
 
-text
 
 ---
 
@@ -110,7 +105,6 @@ db.orders.aggregate([
 { $project: { _id: 0, orderId: 1, productId: 1, qty: 1 } }
 ]);
 
-text
 
 ---
 
@@ -126,34 +120,4 @@ totalPrice: { $multiply: ["$qty", "$price"] }
 },
 { $match: { status: "completed" } }
 ]);
-
-text
-
----
-
-## Screenshots
-
-Place screenshots of your MongoDB shell or Compass query inputs and outputs in the `/screenshots` folder.  
-Example:
-
-- `aggregation-result.png` — showing aggregation pipeline run and output.  
-- `logical-query-result.png` — showing logical query results in MongoDB.
-
-Embed these in the README like this:
-
-![Aggregation Pipeline Result](./screenshots/aggregation
-
-![Logical Queries Result](./screenshots/logical-query
-
-Open MongoDB shell (mongosh) or Compass.
-
-Switch to the database: use salesDB.
-
-Insert sample data.
-
-Run the aggregation and find queries.
-
-Observe the output.
-
-Take screenshots of commands and results.
 
